@@ -26,6 +26,15 @@ class App extends Component {
     console.log(this.state.recipes);
   };
 
+  // to convert saved recipes under localStorage to a JSON object
+  // and reset state back to initial results
+  componentDidMount = () => {
+    const json = localStorage.getItem("recipes");
+    const recipes = JSON.parse(json);
+    this.setState({ recipes });
+  };
+
+  // save initial search results, use localStorage
   componentDidUpdate = () => {
     const recipes = JSON.stringify(this.state.recipes);
     localStorage.setItem("recipes", recipes);
