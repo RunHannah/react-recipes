@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Form from "./components/form";
+import Recipes from "./components/recipes";
 
 class App extends Component {
   state = {
@@ -33,9 +34,7 @@ class App extends Component {
           <h1 className="App-title">Recipe Directory</h1>
         </header>
         <Form getRecipe={this.getRecipe} />
-        {this.state.recipes.map(recipe => {
-          return <p key={recipe.recipe_id}>{recipe.title}</p>;
-        })}
+        <Recipes recipes={this.state.recipes} />
       </div>
     );
   }
