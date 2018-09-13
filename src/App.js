@@ -4,9 +4,18 @@ import Form from "./components/form";
 
 class App extends Component {
   //pass in e (for event) to prevent default page refresh
-  getRecipe = e => {
+  getRecipe = async e => {
+    const recipeName = e.target.elements.recipeName.value;
     e.preventDefault();
-    console.log("working");
+
+    const api_call = await fetch(
+      "https://www.food2fork.com/api/search?key=" +
+        process.env.REACT_APP_API_KEY +
+        "&q=shredded%20chicken&count=5"
+    );
+
+    const data = await api_call.json();
+    console.log("data", data);
   };
 
   render() {
