@@ -3,6 +3,9 @@ import "./App.css";
 import Form from "./components/form";
 
 class App extends Component {
+  state = {
+    recipes: []
+  };
   //pass in e (for event) to prevent default page refresh
   getRecipe = async e => {
     const recipeName = e.target.elements.recipeName.value;
@@ -11,11 +14,15 @@ class App extends Component {
     const api_call = await fetch(
       "https://www.food2fork.com/api/search?key=" +
         process.env.REACT_APP_API_KEY +
-        "&q=shredded%20chicken&count=5"
+        "&q=" +
+        recipeName +
+        "&count=10"
     );
 
     const data = await api_call.json();
-    console.log("data", data);
+    this.setState({ recipes: data.recipes });
+
+    console.log(this.state.recipes);
   };
 
   render() {
@@ -26,6 +33,9 @@ class App extends Component {
           <h1 className="App-title">Recipe Directory</h1>
         </header>
         <Form getRecipe={this.getRecipe} />
+        {this.state.recipes.map(recipe => {
+          return <p key={recipe.recipe_id}>{recipe.title}</p>;
+        })}
       </div>
     );
   }
