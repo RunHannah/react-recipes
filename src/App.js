@@ -22,7 +22,6 @@ class App extends Component {
 
     const data = await api_call.json();
     this.setState({ recipes: data.recipes });
-
     console.log(this.state.recipes);
   };
 
@@ -44,8 +43,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <h1 className="App-title">Recipe Directory</h1>
+          <h1 className="App-title">Recipe Search</h1>
         </header>
         <Form getRecipe={this.getRecipe} />
         <Recipes recipes={this.state.recipes} />
