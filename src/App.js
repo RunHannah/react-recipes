@@ -7,6 +7,7 @@ class App extends Component {
   state = {
     recipes: []
   };
+
   //pass in e (for event) to prevent default page refresh
   getRecipe = async e => {
     const recipeName = e.target.elements.recipeName.value;
@@ -24,7 +25,6 @@ class App extends Component {
     this.setState({ recipes: data.recipes });
     console.log(this.state.recipes);
   };
-
   // to convert saved recipes under localStorage to a JSON object
   // and reset state back to initial results
   componentDidMount = () => {
@@ -38,7 +38,6 @@ class App extends Component {
     const recipes = JSON.stringify(this.state.recipes);
     localStorage.setItem("recipes", recipes);
   };
-
   render() {
     return (
       <div className="App">
@@ -51,5 +50,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

@@ -21,3 +21,5 @@ $ npm run build
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+<kbd><img src="src/smoothie.png" style="width: 400px;"></kbd>
