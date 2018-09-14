@@ -16,10 +16,16 @@ Install required npm packages and dependencies:
 
 ```
 $ npm install
-$ npm run build
+```
+
+Sign up for an API key from Food2Fork.
+Under App.js file replace "process.env.REACT_APP_API_KEY" on line 18 with API key.
+
+```
+$ npm start
 ```
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-<kbd><img src="src/smoothie.png" style="width: 400px;"></kbd>
+<kbd><img src="src/smoothie.png" style="width: 500px;"></kbd>
