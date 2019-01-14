@@ -23,7 +23,6 @@ class App extends Component {
 
     const data = await api_call.json();
     this.setState({ recipes: data.recipes });
-    console.log(this.state.recipes);
   };
   // to convert saved recipes under localStorage to a JSON object
   // and reset state back to initial results
